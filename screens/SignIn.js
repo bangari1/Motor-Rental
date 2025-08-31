@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesome } from '@expo/vector-icons';
 import {
   View,
   Text,
@@ -21,12 +22,12 @@ import Animated, {
 } from 'react-native-reanimated';
 
 // You can replace these with your preferred icons or use react-native-vector-icons
-const UserIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>👤</Text>;
-const LockIcon = ({ color }) => <Text style={{ fontSize: 20, color }}>🔒</Text>;
-const EyeIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>👁️</Text>;
-const EyeOffIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>🙈</Text>;
-const CarIcon = () => <Text style={{ fontSize: 40, color: '#f97316' }}>🚗</Text>;
-const AlertIcon = () => <Text style={{ fontSize: 14, color: '#ef4444' }}>⚠️</Text>;
+const UserIcon = () => <FontAwesome name="user" size={20} color="#000000ff" />;
+const LockIcon = () => <FontAwesome name="lock" size={20} color="#000000ff" />;
+const EyeIcon = () => <FontAwesome name="eye" size={20} color="#000000ff" />;
+const EyeOffIcon = () => <FontAwesome name="eye-slash" size={20} color="#000000ff" />;
+const CarIcon = () => <FontAwesome name="motorcycle" size={40} color="#f97316" />;
+const AlertIcon = () => <FontAwesome name="circle-exclamation" size={40} color="#f91616ff" />;
 
 // Custom Hook for form validation
 const useSignInValidation = () => {
@@ -257,10 +258,12 @@ export default function SignIn({ navigation, onSignInSuccess, onNavigateToSignUp
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       {/* Background Gradient */}
-      <LinearGradient
+      {/* <LinearGradient
         colors={['#1e293b', '#334155', '#475569']}
         style={StyleSheet.absoluteFillObject}
-      />
+      /> */}
+      <View style={[StyleSheet.absoluteFillObject, { backgroundColor: '#000' }]} />
+
 
       <ScrollView 
         showsVerticalScrollIndicator={false}
@@ -272,7 +275,7 @@ export default function SignIn({ navigation, onSignInSuccess, onNavigateToSignUp
             <CarIcon />
           </View>
           <Text style={styles.title}>Welcome Back</Text>
-          <Text style={styles.subtitle}>Sign in to your VehicleRent account</Text>
+          <Text style={styles.subtitle}>Sign in to your RentalRidez account</Text>
         </View>
 
         {/* Form Section */}
@@ -387,6 +390,7 @@ const styles = StyleSheet.create({
     padding: 24,
     borderRadius: 20,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    // backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
   inputContainer: {
     marginBottom: 20,
@@ -407,10 +411,14 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   textInput: {
-    flex: 1,
-    fontSize: 16,
-    color: '#1e293b',
-    paddingVertical: 16,
+  flex: 1,
+  fontSize: 16,
+  color: '#1e293b',
+  paddingVertical: 16,
+  backgroundColor: 'transparent',
+  outlineStyle: 'none',   // ✅ removes browser outline (web only)
+  outlineWidth: 0,        // ✅ ensures no visible border
+  borderWidth: 0,         // ✅ avoids browser-injected border
   },
   rightIconContainer: {
     padding: 16,
