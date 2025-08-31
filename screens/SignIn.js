@@ -4,10 +4,10 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  StyleSheet,
   Alert,
   Platform,
+  ScrollView,
+  StyleSheet,
   KeyboardAvoidingView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
