@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesome } from '@expo/vector-icons';
 import {
   View,
   Text,
@@ -22,16 +23,16 @@ import Animated, {
 } from 'react-native-reanimated';
 
 // You can replace these with your preferred icons or use react-native-vector-icons
-const UserIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>👤</Text>;
-const MailIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>📧</Text>;
-const LockIcon = ({ color }) => <Text style={{ fontSize: 20, color }}>🔒</Text>;
-const EyeIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>👁️</Text>;
-const EyeOffIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>🙈</Text>;
-const SendIcon = () => <Text style={{ fontSize: 16, color: 'white' }}>📤</Text>;
-const CarIcon = () => <Text style={{ fontSize: 40, color: '#f97316' }}>🚗</Text>;
-const CheckIcon = () => <Text style={{ fontSize: 18, color: '#22c55e' }}>✅</Text>;
-const AlertIcon = () => <Text style={{ fontSize: 14, color: '#ef4444' }}>⚠️</Text>;
-const OtpIcon = () => <Text style={{ fontSize: 20, color: '#64748b' }}>🔢</Text>;
+const UserIcon = () => <FontAwesome name="user" size={20} color="#000000ff" />;
+const MailIcon = () => <FontAwesome name="envelope" size={20} color="#000000ff" />;
+const LockIcon = () => <FontAwesome name="lock" size={20} color="#000000ff" />;
+const EyeIcon = () => <FontAwesome name="eye" size={20} color="#000000ff" />;
+const EyeOffIcon = () => <FontAwesome name="eye-slash" size={20} color="#000000ff" />;
+const SendIcon = () => <FontAwesome name="paper-plane" size={20} color="#000000ff" />;
+const CarIcon = () => <FontAwesome name="motorcycle" size={40} color="#f98f16ff" />;
+const CheckIcon = () => <FontAwesome name="square-check" size={20} color="#4af44aff" />;
+const AlertIcon = () => <FontAwesome name="circle-exclamation" size={40} color="#f91616ff" />;
+const OtpIcon = () => <FontAwesome name="key" size={20} color="#5493ffff" />;
 
 // Custom Hook for form validation
 const useFormValidation = () => {
@@ -333,10 +334,8 @@ export default function SignUp({ navigation, onSignUpSuccess, onNavigateToSignIn
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       {/* Background Gradient */}
-      <LinearGradient
-        colors={['#1e293b', '#334155', '#475569']}
-        style={StyleSheet.absoluteFillObject}
-      />
+      <View style={[StyleSheet.absoluteFillObject, { backgroundColor: '#000' }]} />
+
 
       <ScrollView 
         showsVerticalScrollIndicator={false}
@@ -347,7 +346,7 @@ export default function SignUp({ navigation, onSignUpSuccess, onNavigateToSignIn
           <View style={styles.logoContainer}>
             <CarIcon />
           </View>
-          <Text style={styles.title}>VehicleRent</Text>
+          <Text style={styles.title}>RentalRidez</Text>
           <Text style={styles.subtitle}>Create your account to get started</Text>
         </View>
 
@@ -529,7 +528,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 2,
     borderColor: '#e2e8f0',
-    shadowColor: '#000',
+    // shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     elevation: 3,
@@ -538,11 +537,16 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   textInput: {
-    flex: 1,
-    fontSize: 16,
-    color: '#1e293b',
-    paddingVertical: 16,
+  flex: 1,
+  fontSize: 16,
+  color: '#1e293b',
+  paddingVertical: 16,
+  backgroundColor: 'transparent',
+  outlineStyle: 'none',   // ✅ removes browser outline (web only)
+  outlineWidth: 0,        // ✅ ensures no visible border
+  borderWidth: 0,         // ✅ avoids browser-injected border
   },
+
   rightIconContainer: {
     padding: 16,
   },
@@ -559,6 +563,7 @@ const styles = StyleSheet.create({
   },
   emailContainer: {
     marginBottom: 20,
+    backgroundColor: 'transparent',
   },
   emailInputContainer: {
     marginBottom: 12,
@@ -580,7 +585,7 @@ const styles = StyleSheet.create({
     marginLeft: 6,
   },
   requirementsContainer: {
-    backgroundColor: 'rgba(249, 115, 22, 0.1)',
+    backgroundColor: 'rgba(49, 45, 42, 0.49)',
     padding: 16,
     borderRadius: 12,
     marginBottom: 24,
