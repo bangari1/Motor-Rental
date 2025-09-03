@@ -7,7 +7,7 @@ import animation from '../assets/splash-animation.json';
 export default function SplashScreen({ navigation }) {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('SignIn');
+      navigation.replace('Home');
     }, 5000);
 
     return () => clearTimeout(timer);
