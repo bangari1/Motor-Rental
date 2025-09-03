@@ -9,7 +9,7 @@ export default function BikeCard() {
         <Text style={{ color: "red", fontWeight: "bold" }}>TVS</Text> | Ntorq
       </Text>
       <Image
-        source={require("./assets/ntorq.png")}
+        source={require("../assets/ntorq.png")}
         style={styles.image}
         resizeMode="contain"
       />

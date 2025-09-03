@@ -4,17 +4,23 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Pressable 
 import { Ionicons } from "@expo/vector-icons";
 import LottieView from 'lottie-react-native';
 import Rental_process from './Rental_process.js';
-import Vehicle_card from './Vehicle_card.js';
+import { useNavigation } from '@react-navigation/native';
+import Vehicle_card from './Vehicle_card.js';   
 
 export default function Home() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require("./assets/logo.png")} 
+          source={require("../assets/logo.png")} 
           style={styles.logo_image}
         />
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
+          <Ionicons name="person-circle" size={36} color="#000" />
+        </TouchableOpacity> */}
+
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
           <Ionicons name="person-circle" size={36} color="#000" />
         </TouchableOpacity>
       </View>
@@ -24,7 +30,7 @@ export default function Home() {
                 <Text style={styles.text_content}>RENT . RIDE . REPEAT</Text>
             </View>
         <View style={styles.home_animation} >
-            <LottieView style={{flex:1}}source={require('./assets/car_animation.json')} autoPlay loop />
+            <LottieView style={{flex:1}}source={require('../assets/car_animation.json')} autoPlay loop />
         </View>
         <Text style={styles.avail_text}>Top Rentals Of The Month</Text>
         <View style={styles.avail}>
@@ -40,7 +46,7 @@ export default function Home() {
         </View>
             <View style={styles.refer_main}>
                 {/* <View style={{width:150,height:150}}> */}
-                <Image source={require('./assets/refer.jpg')} style={styles.refer_image}/>
+                <Image source={require('../assets/refer.jpg')} style={styles.refer_image}/>
                 {/* </View> */}
                 <View style={{flex:1,backgroundColor:"#f2f2ecff"}}> 
                     <Text style={styles.refer_main_text}>Get Rs.50 For Each Friend's Login !</Text>
